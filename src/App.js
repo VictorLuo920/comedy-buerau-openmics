@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar'
 import userService from './utils/userService';
 import SignupPage from './pages/SignupPage/SignupPage'
 import LoginPage from './pages/LoginPage/LoginPage'
+import EventsIndexPage from './pages/EventsIndexPage/EventsIndexPage'
 
 
 class App extends Component {
@@ -35,7 +36,8 @@ class App extends Component {
       </header>
       <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
       <Switch>
-        <Route exact path='/' render={() => {return (<div>Home is Working</div>)}
+        <Route exact path='/' render={() => 
+          <EventsIndexPage />
         }/>
         <Route exact path='/signup' render={({ history }) => 
             <SignupPage
