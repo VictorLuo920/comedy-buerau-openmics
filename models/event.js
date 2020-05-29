@@ -2,14 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const eventSchema = new Schema({
-  name: String,
-  description: String,
-  time: Date, 
-  slots: [{type: Schema.Types.ObjectId, ref: 'User'}]
-}, {
-  timestamps: true
-});
+const eventSchema = new Schema(
+  {
+    name: String,
+    description: String,
+    time: Date,
+    maxSlots: Number,
+    slots: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  },
+  {
+    timestamps: true,
+  }
+);
 
 
 // Ensure that name of the event is limited to 140 characters
