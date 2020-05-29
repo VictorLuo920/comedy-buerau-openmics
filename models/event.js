@@ -3,11 +3,15 @@ const Schema = mongoose.Schema;
 
 const slotSchema = new Schema({
   users: [{type: Schema.Types.ObjectId, ref:'User'}]
+}, {
+  timestamps: true
 })
 
 const dateSchema = new Schema({
   time: Date,
   slots: [slotSchema]
+}, {
+  timestamps: true
 })
 
 const eventSchema = new Schema({
@@ -17,8 +21,6 @@ const eventSchema = new Schema({
 }, {
   timestamps: true
 });
-
-
 
 
 // Ensure that name of the event is limited to 140 characters

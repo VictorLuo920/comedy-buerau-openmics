@@ -6,8 +6,8 @@ router.get('/', eventsCtrl.index);
 
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
-router.use(require('../../config/auth'));
-router.post('/', checkAuth, eventsCtrl.create);
+// router.use(require('../../config/auth'));
+router.post('/', eventsCtrl.create);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {

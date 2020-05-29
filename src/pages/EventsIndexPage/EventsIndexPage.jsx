@@ -20,7 +20,7 @@ class EventsIndexPage extends Component {
   render() {
     const eventRows = this.state.events.map((event, idx) => (
       <tr key={idx}>
-        <td><span className="badge">{idx + 1}</span></td>
+        <td>{idx + 1}</td>
         <td>{event.name}</td>
       </tr>
     ));
@@ -30,7 +30,7 @@ class EventsIndexPage extends Component {
         <header className='header-footer'>High Scores</header>
           <table className='table text-info'>
             <thead>
-              <tr><th width={80}>#</th><th width={100}>Name</th></tr>
+              <tr><th>#</th><th>Name</th></tr>
             </thead>
             <tbody>
               {eventRows}

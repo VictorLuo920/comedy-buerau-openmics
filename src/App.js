@@ -6,6 +6,7 @@ import userService from './utils/userService';
 import SignupPage from './pages/SignupPage/SignupPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import EventsIndexPage from './pages/EventsIndexPage/EventsIndexPage'
+import EventCreatePage from './pages/EventCreatePage/EventCreatePage'
 
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
-
+  
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -51,6 +52,9 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+        <Route exact path='/create' render = {({history}) =>
+      <EventCreatePage history={history} />
+      } />
       </Switch>
     </div>
     </>
