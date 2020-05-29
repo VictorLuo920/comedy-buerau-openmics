@@ -1,23 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const slotSchema = new Schema({
-  users: [{type: Schema.Types.ObjectId, ref:'User'}]
-}, {
-  timestamps: true
-})
-
-const dateSchema = new Schema({
-  time: Date,
-  slots: [slotSchema]
-}, {
-  timestamps: true
-})
 
 const eventSchema = new Schema({
   name: String,
   description: String,
-  times: [dateSchema]
+  time: Date, 
+  slots: [{type: Schema.Types.ObjectId, ref: 'User'}]
 }, {
   timestamps: true
 });

@@ -7,6 +7,8 @@ class EventCreateForm extends Component {
   state = {
     name: '',
     description: '',
+    time: '',
+    slots: [null],
   };
 
   handleChange = (e) => {
@@ -27,8 +29,12 @@ class EventCreateForm extends Component {
     }
   }
 
+  handleArrayChange = (e) => {
+    
+  }
+
   isFormInvalid() {
-    return !(this.state.name && this.state.description);
+    return !(this.state.name && this.state.description && this.state.time);
   }
 
   render() {
@@ -43,7 +49,17 @@ class EventCreateForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="description" className="form-control" placeholder="Description" value={this.state.description} name="description" onChange={this.handleChange} />
+              <textarea type="description" className="form-control" placeholder="Description" value={this.state.description} name="description" onChange={this.handleChange} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input type="datetime-local" className="form-control" placeholder="Time" value={this.state.time} name="time" onChange={this.handleChange} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input type="number" className="form-control" placeholder="Slots" value={this.state.slots.length} name="slots" onChange={this.handleArrayChange} />
             </div>
           </div>
           <div className="form-group">
