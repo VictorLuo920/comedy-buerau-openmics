@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import userService from './utils/userService';
+import eventsService from './utils/eventsService'
 import SignupPage from './pages/SignupPage/SignupPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import EventsIndexPage from './pages/EventsIndexPage/EventsIndexPage'
 import EventCreatePage from './pages/EventCreatePage/EventCreatePage'
+import EventDetailPage from './pages/EventDetailPage/EventDetailPage';
 
 
 class App extends Component {
@@ -15,14 +17,24 @@ class App extends Component {
     super();
     this.state = {
       // Initialize user if there's a token, otherwise null
+      events: [],
       user: userService.getUser()
     };
   }
 
+  getEvent = (idx) => {
+    return this.state.events[idx];
+  }
+
+  async componentDidMount() {
+    const events = await eventsService.index();
+    this.setState({ events: events });
+}
+
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
-  
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -38,8 +50,36 @@ class App extends Component {
       <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
       <Switch>
         <Route exact path='/' render={() => 
-          <EventsIndexPage />
+          {
+            const eventRows = this.state.events.map((event, idx) => (
+              <tr>
+                <Link to={`/events/${idx}`} key={event.name}><td>{event.name}</td></Link>
+              </tr>
+            ));
+          
+            return (
+              <div>
+                <header className='header-footer'>Events</header>
+                  <table className='table text-info'>
+                    <thead>
+                     Name
+                    </thead>
+                    <tbody>
+                      {eventRows}
+                    </tbody>
+                  </table>
+              </div>
+            );
+          }
         }/>
+        <Route path='/events/:idx' render={(props) => 
+            <EventDetailPage
+              {...props}
+              getEvent={this.getEvent}
+              user={this.state.user}
+            />
+          }
+        />
         <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}

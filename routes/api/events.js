@@ -8,6 +8,8 @@ router.get('/', eventsCtrl.index);
 // Process the token for only the routes below
 // router.use(require('../../config/auth'));
 router.post('/', eventsCtrl.create);
+router.use(require('../../config/auth'));
+router.get('/:id', eventsCtrl.slot);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {

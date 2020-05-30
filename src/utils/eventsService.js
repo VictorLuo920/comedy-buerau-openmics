@@ -4,7 +4,8 @@ const BASE_URL = '/api/events/';
 
 export default {
   index,
-  create
+  create,
+  slot
 };
 
 function index() {
@@ -30,3 +31,13 @@ function create(event) {
   return fetch(BASE_URL, options).then(res => res.json());
 }
 
+function slot(event) {
+  const options ={
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  };
+  return fetch(BASE_URL + event._id, options).then(res => res.json()).then(event => event);
+}

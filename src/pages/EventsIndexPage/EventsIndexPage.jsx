@@ -27,7 +27,7 @@ class EventsIndexPage extends Component {
   
     return (
       <div>
-        <header className='header-footer'>High Scores</header>
+        <header className='header-footer'>Events</header>
           <table className='table text-info'>
             <thead>
               <tr><th>#</th><th>Name</th></tr>
