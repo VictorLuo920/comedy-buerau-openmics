@@ -45,29 +45,23 @@ class App extends Component {
     <>
     <div className="App">
       <header>
-      Project 4 Start
+      The Comedy Bureau App Open Mics
       </header>
+      <br></br>
       <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
       <Switch>
         <Route exact path='/' render={() => 
           {
             const eventRows = this.state.events.map((event, idx) => (
-              <tr>
-                <Link to={`/events/${idx}`} key={event.name}><td>{event.name}</td></Link>
-              </tr>
+             <ul>
+               <li><Link to={`/events/${idx}`} key={event.name}>{event.name}</Link></li>
+              </ul>
             ));
           
             return (
               <div>
                 <header className='header-footer'>Events</header>
-                  <table className='table text-info'>
-                    <thead>
-                     Name
-                    </thead>
-                    <tbody>
-                      {eventRows}
-                    </tbody>
-                  </table>
+                {eventRows}
               </div>
             );
           }

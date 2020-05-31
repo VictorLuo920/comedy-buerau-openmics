@@ -23,12 +23,10 @@ async function index(req, res) {
 
 async function slot(req, res) {
   try {
-    const event = await Event.findById(req.params.id)
-    if (event.slots.includes(req.user) = false) {event.slots.push(req.user)}
+    const event = await Event.findById(req.params.id).populate('slots')
+    event.slots.push(req.user)
     event.save()
-    res.json(event);
-   // I do not have access to req.user here
-// push the user into the Event Array... with req.User._id figure out the promise issue. 
+    res.json(event); 
 } catch(err) {
     res.json({err});
   }

@@ -5,8 +5,8 @@
     align-items: center;
     font-size: 20px;
   }
-  
-  .EventDetailPage-event {
+
+.EventDetailPage-event {
     padding: 20px;
     border-radius: 5px;
     text-align: left;
@@ -16,8 +16,8 @@
     grid-gap: 20px;
     background-color: darkslategrey;
     color: white;
-  }
+}
   
-  .EventDetailPage a {
+.EventDetailPage a {
     color: white;
-  }
+}

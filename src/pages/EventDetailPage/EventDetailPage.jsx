@@ -29,7 +29,8 @@ const EventDetailPage = (props) => {
             event.slots.includes(props.user._id) ? 'Already going!' : <button onClick={handleJoin}
             >Handle Join</button>
           } */}
-          {event.slots.length != 0 ? 'See this' : 'E this'}
+          {event.slots.length != 0 ? 'Some slots here' : 'No slots here'}
+          {/* above here will be a map function  to lay out the elements of user names  */}
           <form>
 
           </form>
