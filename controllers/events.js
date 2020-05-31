@@ -24,9 +24,12 @@ async function index(req, res) {
 async function slot(req, res) {
   try {
     const event = await Event.findById(req.params.id).populate('slots')
-    event.slots.push(req.user)
-    event.save()
-    res.json(event); 
+    if ( event.slots.some(slot => {return slot['_id'] == req.user._id}) === false ) {
+      event.slots.push(req.user)
+      event.save()
+      res.json(event); 
+    } else {
+      res.json(event);}
 } catch(err) {
     res.json({err});
   }
