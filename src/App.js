@@ -68,9 +68,10 @@ class App extends Component {
             );
           }
         }/>
-        <Route path='/events/:idx' render={(props) => 
+        <Route path='/events/:idx' render={(props, history) => 
             <EventDetailPage
               {...props}
+              history={history}
               getEvent={this.getEvent}
               user={this.state.user}
             />
@@ -89,7 +90,10 @@ class App extends Component {
             />
           }/>
         <Route exact path='/create' render = {({history}) =>
-      <EventCreatePage history={history} />
+            <EventCreatePage 
+              history={history}
+              user={this.state.user}
+         />
       } />
       </Switch>
     </div>

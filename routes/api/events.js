@@ -6,11 +6,10 @@ router.get('/', eventsCtrl.index);
 
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
-// router.use(require('../../config/auth'));
-router.post('/', eventsCtrl.create);
 router.use(require('../../config/auth'));
-router.get('/:id', eventsCtrl.slot);
-router.get('/:id/unslot', eventsCtrl.unslot);
+router.post('/', checkAuth, eventsCtrl.create);
+router.get('/:id', checkAuth, eventsCtrl.slot);
+router.get('/:id/unslot', checkAuth, eventsCtrl.unslot);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {
