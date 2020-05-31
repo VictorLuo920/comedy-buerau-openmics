@@ -5,7 +5,8 @@ const BASE_URL = '/api/events/';
 export default {
   index,
   create,
-  slot
+  slot,
+  unslot
 };
 
 function index() {
@@ -40,4 +41,15 @@ function slot(event) {
     }
   };
   return fetch(BASE_URL + event._id, options).then(res => res.json()).then(event => event);
+}
+
+function unslot(event) {
+  const options ={
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  };
+  return fetch(BASE_URL + event._id + '/unslot', options).then(res => res.json()).then(event => event);
 }

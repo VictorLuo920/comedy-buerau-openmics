@@ -3,7 +3,8 @@ const Event = require('../models/event');
 module.exports = {
   create,
   index,
-  slot
+  slot,
+  unslot
 };
 
 async function create(req, res) {
@@ -30,11 +31,25 @@ async function slot(req, res) {
       res.json(event); 
     } else {
       res.json(event);}
-} catch(err) {
-    res.json({err});
+  } catch(err) {
+      res.json({err});
   }
 }
 
+async function unslot(req, res) {
+  try {
+    const event = await Event.findById(req.params.id).populate('slots')
+    if ( event.slots.some(slot => {return slot['_id'] = req.user._id})) {
+      event.slots = event.slots.filter(slot => {return slot['_id'] != req.user._id})
+      event.save()
+      res.json(event); 
+    } else {
+      console.log('failed .some check')
+      res.json(event);}
+  } catch(err) {
+      res.json({err});
+  }
+}
 
 
 

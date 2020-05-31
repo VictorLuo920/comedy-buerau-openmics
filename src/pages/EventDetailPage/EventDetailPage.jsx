@@ -13,30 +13,40 @@ const EventDetailPage = (props) => {
     console.log(props.user)
   }
   
+  async function handleRemoveJoin() {
+    const updatedevent = await eventService.unslot(event)
+    console.log(updatedevent);
+  }
+
   return (
     <div className='EventDetailPage'>
       {event ?
         <div className='EventDetailPage-event'>
-          <span>NAME:</span>
+          <span>Name:</span>
           <span>{event.name}</span>
           <span>Description:</span>
           <span>{event.description}</span>
           <span>Date and Time:</span>
           <span>{event.time}</span>
-          {/* form goes here that uses event.slots to so that user can "push" themselves into the array. There should be a method that utilizes the "maxSlots" property of the event set during event Creation */}
-          {/* button that says join this event */}
-          {/* {
-            event.slots.includes(props.user._id) ? 'Already going!' : <button onClick={handleJoin}
-            >Handle Join</button>
-          } */}
-          {event.slots.length != -1 ? 'Some slots here' : 'No slots here'}
-          {/* above here will be a map function  to lay out the elements of user names  */}
-          <form>
 
-          </form>
-          <button onClick={handleJoin}
-            >Handle Join</button>
+          <span>List of Attendees</span>
+
+          {event.slots.length != 0 ? 
+            event.slots.map((user, idx) => (<span key={idx}>{user}</span>)) : 
+            "No Attendees Yet"
+          }
+          
+      
+          <br></br>
+
+          {event.slots.length === event.maxSlots ? 
+          'Sorry, All Slots Filled!': 
+          <button type='button' className="btn btn-info EventDetailPage-btn" onClick={handleJoin}>Add Me!</button>}
+
+          <button type='button' className="btn btn-info EventDetailPage-btn" onClick={handleRemoveJoin}>Remove Me!</button>
+
           <span></span>
+          <br></br>
           <Link to='/'>RETURN</Link>
         </div>
         :

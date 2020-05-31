@@ -44,8 +44,8 @@ class App extends Component {
     return (
     <>
     <div className="App">
-      <header>
-      The Comedy Bureau App Open Mics
+      <header className="App-header">
+      The Comedy Bureau App
       </header>
       <br></br>
       <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
@@ -53,15 +53,17 @@ class App extends Component {
         <Route exact path='/' render={() => 
           {
             const eventRows = this.state.events.map((event, idx) => (
-             <ul>
-               <li><Link to={`/events/${idx}`} key={event.name}>{event.name}</Link></li>
-              </ul>
+             
+               <Link to={`/events/${idx}`} key={event.name}>{event.name}</Link>
+             
             ));
           
             return (
               <div>
-                <header className='header-footer'>Events</header>
+                <header className='App-title'>Open Mic Events</header>
+                <section>
                 {eventRows}
+                </section>
               </div>
             );
           }

@@ -10,14 +10,18 @@
     padding: 20px;
     border-radius: 5px;
     text-align: left;
-    width: 40%;
+    width: 80%;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr;
     grid-gap: 20px;
-    background-color: darkslategrey;
+    background-color: rgb(211, 53, 53);
     color: white;
 }
   
 .EventDetailPage a {
     color: white;
+}
+
+.EventDetailPage-btn {
+    width: 20%
 }

@@ -10,6 +10,7 @@ router.get('/', eventsCtrl.index);
 router.post('/', eventsCtrl.create);
 router.use(require('../../config/auth'));
 router.get('/:id', eventsCtrl.slot);
+router.get('/:id/unslot', eventsCtrl.unslot);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {
