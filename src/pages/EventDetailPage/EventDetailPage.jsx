@@ -7,13 +7,13 @@ const EventDetailPage = (props) => {
   
   const event = props.getEvent(props.match.params.idx);
 
-  async function handleJoin() {
+  const handleJoin = async () => {
     const updatedevent = await eventService.slot(event)
     console.log(updatedevent);
     console.log(props.user)
   }
   
-  async function handleRemoveJoin() {
+  const handleRemoveJoin = async () => {
     const updatedevent = await eventService.unslot(event)
     console.log(updatedevent);
   }
@@ -32,7 +32,7 @@ const EventDetailPage = (props) => {
           <span>List of Attendees</span>
 
           {event.slots.length != 0 ? 
-            event.slots.map((user, idx) => (<span key={idx}>{user}</span>)) : 
+            event.slots.map((user, idx) => (<span key={idx}># {idx + 1 } ) {user}</span>)) : 
             "No Attendees Yet"
           }
           

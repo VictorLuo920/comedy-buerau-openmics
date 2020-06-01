@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import eventsService from '../../utils/eventsService'
 import userService from '../../utils/userService'
 

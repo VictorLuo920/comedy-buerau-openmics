@@ -53,7 +53,7 @@ class App extends Component {
         <Route exact path='/' render={() => 
           {
             const eventRows = this.state.events.map((event, idx) => (
-             
+            
                <Link to={`/events/${idx}`} key={event.name}>{event.name}</Link>
              
             ));
