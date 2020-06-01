@@ -11,8 +11,8 @@ I found the Comedy Bureau Website late 2019 and found it an immensely useful res
 ![Screenshot2](https://imgur.com/5FpTMiw.png)
 
 ## Links
-* [Trello Board] (https://trello.com/b/2ADglKFu/comedy-bureau-open-mics)
-* [Heroku Link] (https://comedy-bureau-openmics-concept.herokuapp.com/)
+* [Trello Board](https://trello.com/b/2ADglKFu/comedy-bureau-open-mics)
+* [Heroku Link](https://comedy-bureau-openmics-concept.herokuapp.com/)
 
 ## Technologies Used
 React, Express, Node.js, MongoDB Atlas, Mongoose
