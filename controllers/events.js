@@ -18,7 +18,7 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
-  const events = await Event.find({})
+  const events = await Event.find({}).populate('slots')
   res.json(events);
 }
 
