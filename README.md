@@ -7,8 +7,8 @@ Honestly, this app is meant to be a labor of love.
 I found the Comedy Bureau Website late 2019 and found it an immensely useful resource to leaping into the vibrant comedy scene in Los Angeles. However, I was shocked this rich resource limited its features to simply being a reference. Many comedy venues rely on either analog pen-and-paper tools or third-party web solutions to handle open-mic sign ups. With the Coemedy Buereau doing such a good job being a central location to see where there are open mics across the city, my hopes is that upgradinfg the resource with functionalities to handle open-mic sign ups could create unprecedented shifts in the way the comedy scene engages with its performers. 
 
 ## Screenshots
-![Screenshot1](https://imgur.com/9cbZfba.png)
-![Screenshot2](https://imgur.com/5FpTMiw.png)
+![Screenshot1](https://imgur.com/DM9c74L.png)
+![Screenshot2](https://imgur.com/NgA3LeL.png)
 
 ## Links
 * [Trello Board](https://trello.com/b/2ADglKFu/comedy-bureau-open-mics)

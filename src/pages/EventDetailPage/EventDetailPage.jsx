@@ -6,6 +6,7 @@ import eventService from '../../utils/eventsService'
 const EventDetailPage = (props) => {
   
   const event = props.getEvent(props.match.params.idx);
+  
 
   const handleJoin = async () => {
     const updatedevent = await eventService.slot(event)
