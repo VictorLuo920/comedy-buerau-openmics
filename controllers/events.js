@@ -39,8 +39,8 @@ async function slot(req, res) {
 async function unslot(req, res) {
   try {
     const event = await Event.findById(req.params.id).populate('slots')
-    if ( event.slots.some(slot => {return slot['_id'] = req.user._id})) {
-      event.slots = event.slots.filter(slot => {return slot['_id'] != req.user._id})
+    if ( event.slots.some(slot => {return slot['_id'].equals(req.user._id)})) {
+      event.slots = event.slots.filter(slot => {return !slot['_id'].equals(req.user._id)})
       event.save()
       res.json(event); 
     } else {
